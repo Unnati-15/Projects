@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPaws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cssstyle.css' %}">
+
+</head>
+
+<body>
+
+
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="/main/"><img src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/main/">Home</a></li>
+                <li><a href="/dog/">Products</a></li>
+                <li><a class="active" href="/emergencyservices/">Emergency services</a></li>
+                <li><a href="/reviews/">Feedback</a></li>
+                <li><a href="/aboutus/">About Us</a></li>
+
+                <li> {% if request.user.is_authenticated %}
+                    <li><a href="/cart/"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            <div class="w3-dropdown-hover">
+                                <div>{{user}}
+                                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                                        <a href="/myorders/" class="w3-bar-item w3-button">My Orders</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="page-header" class="es-header" style="background-image: url('{% static 'Emergency Services.png' %}')" ;>
+
+
+
+    </section>
+
+
+    <section id="emergency-serv">
+        <div class="es-box">
+            <div class="es-img">
+                <img src="{% static 'ES MH 14.png' %}">
+            </div>
+            <div class="es-details">
+                <h4>MH 14 Animal Hospital</h4>
+                <p>Address: oppsite goldfinger society, Shree Mahakaleshwar Rd, Wakad, pune, 411057 Phone: +9109028214343
+                </p>
+            </div>
+        </div>
+
+        <div class="es-box">
+            <div class="es-img">
+                <img src="{% static 'Karma2.png' %}">
+            </div>
+            <div class="es-details">
+                <h4>Karma Foundation</h4>
+                <p>Bungalow No. 1, Jacinta Villa, Opp. Sandalwood Society, Near Ambedkar Chowk, Near Medipoint Hospital, Aundh, Pune - 411007 Phone: +918390944337
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your nemail address">
+            <button class="normal"><a href="/signup/">Sign Up</a></button>
+        </div>
+    </section>
+
+    <footer class="section-p1 ">
+        <div class="col ">
+            <img class="logo " src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %} ">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow ">
+                <h4>Follow Us</h4>
+                <div class="icon ">
+                    <i class="fab fa-facebook-f "></i>
+                    <i class="fab fa-twitter "></i>
+                    <i class="fab fa-instagram "></i>
+                    <i class="fab fa-pintrest-p "></i>
+                    <i class="fab fa-youtube "></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col ">
+            <h4>About</h4>
+            <a href="/aboutus/ ">About</a>
+            <a href="/contactus/ ">Contact us</a>
+            <a href="/admin/ ">Admin</a>
+        </div>
+
+        <div class="col ">
+            <h4>My Account</h4>
+            <a href="/login/ ">Sign In</a>
+            <a href="/login/ ">View Cart</a>
+            <a href="/login/ ">Track My Order</a>
+
+        </div>
+
+        <div class="install ">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row ">
+                <img src="{% static 'app.jpg' %} ">
+                <img src="{% static 'play.jpg' %} ">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %} ">
+        </div>
+
+        <div class="copyright ">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
+
+
+</body>
+
+
+</html>

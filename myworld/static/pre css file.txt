@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Indie+Flower&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;1,600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif 
+}
+
+h1{
+   font-size: 50px;
+   line-height: 64px;
+   color: black; 
+}
+
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: black;
+}
+
+h4{
+    font-size: 20px;
+    color: black;
+}
+
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p{
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1{
+    padding: 40px 80px;
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.02s;
+}
+
+body{
+    width: 100%;
+}
+
+/*Header section starts*/
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: whitesmoke;
+    box-shadow: 0 5px 15px rgba(37, 36, 36, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.788);
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #089e94cb;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #089e94cb;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+/* Home Page */
+{% load static %}
+#home{
+    background-image: url({% static 'puppy-cat-cuddling_1892x1081_1_1892x1081.jpg'%});
+    height: 95vh;
+    width: 100%;
+    background-size: cover;
+    background-image: top 50% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#home h4{
+    padding-bottom: 15px;
+}
+
+#home h1{
+    color: #089e94cb;
+}
+
+#home button{
+     background-image: url({% static 'button.png'%});
+    background-color: transparent;
+    color: #089e94cb;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#product1{
+    text-align: center;
+}
+
+#product1 .pro-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#product1 .pro{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#product1 .pro:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#product1 .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+*************************************************************************************************************************************************************
+
+
+<div class="pro">
+                    <img src="{% static 'WK img 1.jpg' %}">
+                    <div class="des">
+                        <span>Whikas</span>
+                        <h5>Whiskas Kitten (2-12 months) Dry Cat Food, Ocean Fish Flavour with Milk 3kg Pack</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹935</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'RC GR Puppy img 1.jpeg' %}">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Golden Retriever Puppy Dry Food</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹810</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'PP Kitten img 1.jpg' %}">
+                    <div class="des">
+                        <span>PurePet</span>
+                        <h5>Pure Pet Cat Adult 1.2KG</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹299</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Pure_Pet_Biscuits_500g_Puppy.jpg' %}">
+                    <div class="des">
+                        <span>PurePet</span>
+                        <h5>PurePet Biscuits 500gm</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹179</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Sterilised Gravy 1.jpeg' %}">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Sterilised Gravy wet 12X85 </h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1,375</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Pedigree Professional Large Breed Puppy Food 1.png' %}">
+                    <div class="des">
+                        <span>Pedigree</span>
+                        <h5>Pedigree Professional Large Breed Puppy Food 1.2KG</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1,073</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Persian 1.jpeg' %}">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Persian Adult Cat Wet Food</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1,325</h4>
+                    </div>
+                </div>
+            
+                <div class="pro">
+                    <img src="{% static 'Pulse ZR® II Detachable Blade Clipper 1.png' %}">
+                    <div class="des">
+                        <span>Andis</span>
+                        <h5>Pulse ZR® II Detachable Blade Clipper</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹3,238</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Tea Tree So Cool Powder,100 Gms – Dogs and Cats.jpg' %}">
+                    <div class="des">
+                        <span>So Cool</span>
+                        <h5>Tea Tree So Cool Powder,100 Gms - Dogs and Cats</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹140</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'WoofBrew-Bottom-Sniffer-Dog-Beer-400x400.jpg' %}">
+                    <div class="des">
+                        <span>WOOF&BREW</span>
+                        <h5>WoofBrew-Bottom-Sniffer-Dog-Beer, 300ml</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹499</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Cat food dispenser 1.jpg' %}">
+                    <div class="des">
+                        <span>Credly</span>
+                        <h5>Cat food dispenser stainless steel</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹599</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Dog Litter tray 1.jpg' %}">
+                    <div class="des">
+                        <span>Karunanidhi</span>
+                        <h5>Grass Dog Litter Tray</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹790</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Sterilised Gravy 1.jpeg' %}">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Sterilised Gravy wet 12X85 </h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1,375</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Pedigree Professional Large Breed Puppy Food 1.png' %}">
+                    <div class="des">
+                        <span>Pedigree</span>
+                        <h5>Pedigree Professional Large Breed Puppy Food 1.2KG</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1,073</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'Persian 1.jpeg' %}">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Persian Adult Cat Wet Food</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+
+                        </div>
+                        <h4>₹1,325</h4>
+                    </div>
+                </div>
+
+
+
+
+
+*********************************************************//////////////////////////////
+
+from reviews.views import reviewaction
+from main.views import mainaction
+from dog.views import dogaction
+from rcpuppy.views import rcpuppy
+from rcpuppydetails.views import rcpuppydetails
+
+
+
+
+path('reviews/',reviewaction),
+    path('main/',mainaction),
+    path('dog/',dogaction),
+    path('rcpuppy/',rcpuppy),
+    path('rcpuppy/<int:rcpuppyid>',rcpuppydetails),
+
+
+
+'reviews',
+    'main',
+     'dog',
+     'rcpuppydetails',
+
+
+
+
+
+
+
+
+

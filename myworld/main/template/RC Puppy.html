@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SuperPaws</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    </head>
+
+    <body>
+
+
+        <section id="header">
+            <a href="#"><img src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}" class="logo"></a>
+
+            <div>
+                <ul id="navbar">
+                    
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="dog.html">Dog</a></li>
+                    <li><a href="Cat">Cat</a></li>
+                    <li><a href="About us">About us</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                    <li><a href="Emergency services">Emergency services</a></li>
+                    <li id="ig-cart"><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <img src="images/RC_img_1_1100x1100.png" width="100%" id="MainImg">
+             
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="images/RC_img_1_1100x1100.png" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="images/RC img 2.jpeg" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="images/RC img 3.jpeg" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="images/RC img 4.jpeg" width="100%" class="small-img">
+                </div>
+            </div>
+            </div>
+
+            <div class="single-pro-details">
+                <h6>Home/Royal Canin Puppy Food</h6>
+                <h4>Puppy food</h4>
+                <h2>₹783</h2>
+                <select>
+                    <option>Select Qty</option>
+                    <option>1Kg</option>
+                    <option>2Kg</option>
+                    <option>3Kg</option>
+                    <option>4Kg</option>
+                </select>
+                <input type="number" value="1">
+                <button class="normal">Add To Cart</button>
+                <h4>Product Details</h4>
+                <span>Your puppy’s growth period is an important life stage; it’s the time of discovery and change. While your puppy is still growing, it’s important that its diet supports optimal health. Suitable for puppies aged up to 10 months that will have an adult weight of up to 10kg, ROYAL CANIN® Mini Puppy in Gravy is specially formulated with all the nutritional needs of your mini puppy in mind. ROYAL CANIN® Mini Puppy in Gravy contains an exclusive complex of antioxidants – including vitamin E – to support its juvenile immune system while it’s still maturing. ROYAL CANIN® Mini Puppy in Gravy also contains many beneficial nutrients that help to support your puppy’s general digestive health. What’s more, the intense energy content in ROYAL CANIN® Mini Puppy in Gravy will meet the high energy needs of your small breed puppy. To cater to each dog’s individual preferences, ROYAL CANIN® Mini Puppy is also available as dry food, with crunchy and tasty kibble. If you’re considering mixed feeding, simply follow our feeding guidelines to ensure your dog gets an accurate amount of both wet and dry food for optimal benefit.</span>
+            </div>
+        </section>
+
+        <section id="product1" class="section-p1">
+            <h2>Best Seller ✨</h2>
+            <p>Your Pet Deserves It!!!</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="images/RC img 1.png">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Mini Puppy</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹783</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="images/WK img 1.jpg">
+                    <div class="des">
+                        <span>Whikas</span>
+                        <h5>Whiskas Kitten (2-12 months) Dry Cat Food, Ocean Fish Flavour with Milk 3kg Pack</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹935</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="images/RC GR Puppy img 1.jpeg">
+                    <div class="des">
+                        <span>Royal Canin</span>
+                        <h5>Royal Canin Golden Retriever Puppy Dry Food</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹810</h4>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="images/PP Kitten img 1.jpg">
+                    <div class="des">
+                        <span>PurePet</span>
+                        <h5>Pure Pet Cat Adult 1.2KG</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹299</h4>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your nemail address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <!--Footer Starts-->
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="images/LogoSample_ByTailorBrands-removebg-preview1.png">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+                <p><strong>Phone:</strong> +919356157251</p>
+                <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+                <dvi class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pintrest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </dvi>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src="images/app.jpg">
+                    <img src="images/play.jpg">
+                </div>
+                <p>Secured Payment Getways</p>
+                <img src="images/pay.png">
+            </div>
+
+            <div class="copyright">
+                <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+            </div>
+        </footer>
+
+        <script>
+            var MainImg = document.getElementById("MainImg");
+            var smallimg = document.getElementsByClassName("small-img");
+
+            smallimg[0].onclick = function(){
+                MainImg.src = smallimg[0].src;
+            }
+
+            smallimg[1].onclick = function(){
+                MainImg.src = smallimg[1].src;
+            }
+
+            smallimg[2].onclick = function(){
+                MainImg.src = smallimg[2].src;
+            }
+
+            smallimg[3].onclick = function(){
+                MainImg.src = smallimg[3].src;
+            }
+        </script>
+
+        <script src="script.js"></script>
+
+
+    </body>
+
+
+</html>

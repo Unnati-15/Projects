@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Indie+Flower&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;1,600&display=swap');
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 2s linear;
+}
+
+.header {
+    background-color: rgba(199, 225, 192, 0.681);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    font-size: 5rem;
+    font-weight: bolder;
+}
+
+i {
+    color: rgb(33, 182, 241);
+}
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: rgb(14, 125, 150);
+}
+
+.icons a,
+.icons div {
+    font-size: 2rem;
+    margin-left: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+
+.footer {
+    position: static;
+    background: url(footerimg.jpg) no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+    background-size: 100% 100%;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
+
+.share {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.credit {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    padding: 2rem 1rem;
+    margin-top: 2.5rem;
+}
+
+h1 {
+    margin-top: 10rem;
+    justify-content: center;
+    color: rgb(6, 18, 145);
+    margin-bottom: 2rem;
+}
+
+.services {
+    align-content: center;
+}
+
+h2 {
+    justify-content: center;
+    color: rgb(6, 18, 145);
+}
+
+.intro {
+    background: url(doggo.jpg) no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 450px;
+    background-size: 100% 100%;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
+
+p {
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
+}
+
+.sim-intro {
+    background: url(cat-and-dog.jpg) no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+    background-size: 100% 100%;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
+
+.sim-intro1 {
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    margin-bottom: 10rem;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+input[type=submit] {
+    background-color: #2514e0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding-left: 100px;
+    float: left;
+    width: 45%;
+    height: 20%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

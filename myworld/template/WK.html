@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPaws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="#"><img src="{% static 'logo-removebg-preview_140x40.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="http://127.0.0.1:8000/main/">Home</a></li>
+                <li><a href="/dog/">Dog</a></li>
+                <li><a href="/cat/">Cat</a></li>
+                <li><a href="About us">About us</a></li>
+                <li><a href="/reviews/">Reviews</a></li>
+                <li><a href="Emergency services">Emergency services</a></li>
+                <li><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a> {% if request.user.is_authenticated %}
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="{{WK.image.url}}" width="100%" id="MainImg">
+
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="{{WK.image.url}}" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="{% static 'WK img 2.jpg' %}" width="100%" class="small-img">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home/Whiskas</h6>
+            <h4>{{WK.name}}</h4>
+            <h2>{{WK.price}}</h2>
+            <select>
+                    <option>Select Qty</option>
+                    <option>1Kg</option>
+                    <option>2Kg</option>
+                    <option>3Kg</option>
+                    <option>4Kg</option>
+                </select>
+            <input type="number" value="1">
+            <button class="normal">Add To Cart</button>
+            <h4>{{WK.desc}}</h4>
+            <span>{{WK.description}}</span>
+        </div>
+    </section>
+
+
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your nemail address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <!--Footer Starts-->
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pintrest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="{% static 'app.jpg' %}">
+                <img src="{% static 'play.jpg' %}">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %}">
+        </div>
+
+        <div class="copyright">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+
+    <script>
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+
+        smallimg[0].onclick = function() {
+            MainImg.src = smallimg[0].src;
+        }
+
+        smallimg[1].onclick = function() {
+            MainImg.src = smallimg[1].src;
+        }
+    </script>
+
+    <script src="{% static 'script.js' %}"></script>
+
+
+</body>
+
+
+</html>

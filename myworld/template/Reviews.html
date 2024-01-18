@@ -1,0 +1,245 @@
+ {% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reviews</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cssstyle.css' %}">
+    <style>
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: rgb(234, 232, 232);
+            box-shadow: 0 5px 15px rgba(37, 36, 36, 0.06);
+            z-index: 999;
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+        
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.788);
+            transition: 0.3s ease;
+        }
+        
+        #navbar li a:hover,
+        #navbar li a.active {
+            color: #089e94cb;
+        }
+        
+        #navbar li a.active::after,
+        #navbar li a:hover::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background: #089e94cb;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+        
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .bg-img {
+            /* The image used */
+            background-image: url({% static 'feedback-img.jpg'%});
+            min-height: 500px;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        /* Add styles to the form container */
+        /* Full-width input fields */
+        
+        input[type=text],
+        input[type=password] {
+            width: 30%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        /* Set a style for the submit button */
+        
+        .btn {
+            background-color: #1a9afd;
+            color: #1a9afd;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+            border-radius: 15px;
+        }
+        
+        .btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="/main/"><img src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/main/">Home</a></li>
+                <li><a href="/dog/">Products</a></li>
+                <li><a href="/emergencyservices/">Emergency services</a></li>
+                <li><a class="active" href="/reviews/">Feedback</a></li>
+                <li><a href="/aboutus/">About Us</a></li>
+
+                <li> {% if request.user.is_authenticated %}
+                    <li><a href="/cart/"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            <div class="w3-dropdown-hover">
+                                <div>{{user}}
+                                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                                        <a href="/myorders/" class="w3-bar-item w3-button">My Orders</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a class="active" href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+
+    <div class="bg-img">
+        <form action="#" method="POST" class="container">
+            {% csrf_token %} {% load static %}
+            <section id="home" style="background-image: url('{% static 'feedback-img.jpg'%}')" ;>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for='email'>Email Id</label>
+                <input type="text" id="email" placeholder="Enter email" name="email" required>
+
+                <label for="subject">Write Your Valuable Reviews Here!</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="width: 30%;height: 80px;"></textarea>
+
+                <button type="submit" class="btn">SUBMIT</button>
+
+            </section>
+        </form>
+    </div>
+
+
+    <section id="newsletter" class="section-p1 section-m1" style="background-image: url('{% static 'b14.png'%}')" ;>
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your nemail address">
+            <button class="normal"><a href="/signup/">Sign Up</a></button>
+        </div>
+    </section>
+
+    <footer class="section-p1 ">
+        <div class="col ">
+            <img class="logo " src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %} ">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow ">
+                <h4>Follow Us</h4>
+                <div class="icon ">
+                    <i class="fab fa-facebook-f "></i>
+                    <i class="fab fa-twitter "></i>
+                    <i class="fab fa-instagram "></i>
+                    <i class="fab fa-pintrest-p "></i>
+                    <i class="fab fa-youtube "></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col ">
+            <h4>About</h4>
+            <a href="/aboutus/ ">About</a>
+            <a href="/contactus/ ">Contact us</a>
+            <a href="/admin/ ">Admin</a>
+        </div>
+
+        <div class="col ">
+            <h4>My Account</h4>
+            <a href="/login/ ">Sign In</a>
+            <a href="/login/ ">View Cart</a>
+            <a href="/login/ ">Track My Order</a>
+
+        </div>
+
+        <div class="install ">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row ">
+                <img src="{% static 'app.jpg' %} ">
+                <img src="{% static 'play.jpg' %} ">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %} ">
+        </div>
+
+        <div class="copyright ">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+    </section>
+
+
+    <script src="{% static 'script.js' %}"></script>
+
+
+</body>
+
+
+</html>

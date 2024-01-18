@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPaws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cssstyle.css' %}">
+
+</head>
+
+<body>
+
+
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="/main/"><img src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/main/">Home</a></li>
+                <li><a href="/dog/">Products</a></li>
+                <li><a href="/emergencyservices/">Emergency services</a></li>
+                <li><a href="/reviews/">Feedback</a></li>
+                <li><a class="active" href="/aboutus/">About Us</a></li>
+
+                <li> {% if request.user.is_authenticated %}
+                    <li><a href="/cart/"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            <div class="w3-dropdown-hover">
+                                <div>{{user}}
+                                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                                        <a href="/myorders/" class="w3-bar-item w3-button">My Orders</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+
+
+
+
+    <section id="about-head" class="section-p1">
+        <img src="{% static 'a6.jpg' %}">
+        <div>
+            <h2>Hi!</h2>
+            <p>We’re SuperPaws 🐾. As pet parents ourselves, we want to help every pet parent and their pet meet all their needs through our innovative products and services. Our hope is that we can play a meaningful role in bringing pets and their humans
+                closer to each other for years and years to come, and through that build a kinder world.</p>
+
+            <abbr title="">India’s 1st and most trusted pet care website in the industry, 
+                dedicated to our favourite family members-our pets.</abbr>
+
+            <br><br>
+
+            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">For any queries call on 7757997489 || To become a membr of SuperPaws call on 7757997489</marquee>
+
+        </div>
+    </section>
+
+    <footer class="section-p1 ">
+        <div class="col ">
+            <img class="logo " src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %} ">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow ">
+                <h4>Follow Us</h4>
+                <div class="icon ">
+                    <i class="fab fa-facebook-f "></i>
+                    <i class="fab fa-twitter "></i>
+                    <i class="fab fa-instagram "></i>
+                    <i class="fab fa-pintrest-p "></i>
+                    <i class="fab fa-youtube "></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col ">
+            <h4>About</h4>
+            <a href="/aboutus/ ">About</a>
+            <a href="/contactus/ ">Contact us</a>
+            <a href="/admin/ ">Admin</a>
+        </div>
+
+        <div class="col ">
+            <h4>My Account</h4>
+            <a href="/login/ ">Sign In</a>
+            <a href="/login/ ">View Cart</a>
+            <a href="/login/ ">Track My Order</a>
+
+        </div>
+
+        <div class="install ">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row ">
+                <img src="{% static 'app.jpg' %} ">
+                <img src="{% static 'play.jpg' %} ">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %} ">
+        </div>
+
+        <div class="copyright ">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'script.js' %}"></script>
+
+
+</body>
+
+
+</html>

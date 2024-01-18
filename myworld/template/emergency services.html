@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SuperPaws</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static style.css %}">
+
+    </head>
+
+    <body>
+
+
+        <section id="header">
+            <a href="#"><img src="{% static 'logo-removebg-preview_140x40.png' %}" class="logo"></a>
+
+            <div>
+                <ul id="navbar">
+                    
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dog.html">Dog</a></li>
+                    <li><a href="Cat">Cat</a></li>
+                    <li><a href="About us">About us</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                    <li><a class="active" href="Emergency services">Emergency services</a></li>
+                    <li id="ig-cart"><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        
+        <section id="page-header" class="es-header">
+            
+            <h2>Emergency Services</h2>
+
+            <p> call on 1800 120 5444
+            </p>
+            
+        </section>
+
+        
+        <section id="pagination" class="section-p1">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+
+        
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your nemail address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="{% static 'logo-removebg-preview_140x40.png' %}">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+                <p><strong>Phone:</strong> +919356157251</p>
+                <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+                <dvi class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pintrest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </dvi>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src=""{% static 'app.jpg' %}">
+                    <img src=""{% static 'play.jpg' %}">
+                </div>
+                <p>Secured Payment Getways</p>
+                <img src=""{% static 'pay.png' %}">
+            </div>
+
+            <div class="copyright">
+                <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+            </div>
+        </footer>
+
+        <script src="{% static 'script.js' %}"></script>
+
+
+    </body>
+
+
+</html>

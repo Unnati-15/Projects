@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPaws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cssstyle.css' %}">
+    <style>
+        #dogproduct1 {
+            text-align: center;
+        }
+        
+        #dogproduct1 .pro-container1 {
+            float: left;
+            text-align: center;
+            width: 23.33%;
+            padding: 60px;
+        }
+        
+        #dogproduct1 .pro1::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        #dogproduct1 .pro1:hover {
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        #dogproduct1 .pro1 img {
+            width: 100%;
+            border-radius: 20px;
+        }
+        
+        #dogproduct1 .pro1 .des {
+            text-align: start;
+            padding: 10px 0;
+        }
+        
+        #dogproduct1 .pro1 .des span {
+            color: #606063;
+            font-size: 14px;
+        }
+        
+        #dogproduct1 .pro1 .des h5 {
+            padding-top: 7px;
+            color: #1a1a1a;
+            font-size: 16px;
+        }
+        
+        #dogproduct1 .pro1 .des i {
+            font-size: 12px;
+            color: rgba(241, 181, 25);
+        }
+        
+        #dogproduct1 .pro1 .des h4 {
+            padding-top: 7px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #088178;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="#"><img src="{% static 'logo-removebg-preview_140x40.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="/main/">Home</a></li>
+                <li><a href="/dog/">Dog</a></li>
+                <li><a href="Cat">Cat</a></li>
+                <li><a href="About us">About us</a></li>
+                <li><a href="/reviews/">Reviews</a></li>
+                <li><a href="/emergencyservices/">Emergency services</a></li>
+                <li><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a> {% if request.user.is_authenticated %}
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+
+    <section id="page-header">
+
+        <h2>The best products</h2>
+
+        <p>Use coupon PAWSSS & Get upto 70% off!!! On purchase of 1499 & above
+        </p>
+
+    </section>
+
+    <section id="dogproduct1" class="section-p1">
+        {% for catpro1 in catpro %}
+        <div class="pro-container1">
+            <div class="pro1" onclick="window.location.href='/WK/{{catpro1.id}}'">
+                <img src="{{catpro1.image.url}}">
+                <div class="des">
+                    <span>{{catpro1.name}}</span>
+                    <h5>{{catpro1.desc}}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>{{catpro1.price}}</h4>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+
+
+
+
+
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your nemail address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="{% static 'logo-removebg-preview_140x40.png' %}">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pintrest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="/aboutus/">About</a>
+            <a href="#">Delivery Information</a>
+            <a href="/contactus/">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="{% static 'app.jpg' %}">
+                <img src="{% static 'play.jpg' %}">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %}">
+        </div>
+
+        <div class="copyright">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'script.js' %}"></script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPaws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cssstyle.css' %}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
+
+</head>
+
+<body>
+
+
+    <section id="header">
+        {% csrf_token %} {% load static %}
+        <a href="/main/"><img src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %}" alt="logo" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="/main/">Home</a></li>
+                <li><a href="/dog/">Products</a></li>
+                <li><a href="/emergencyservices/">Emergency services</a></li>
+                <li><a href="/reviews/">Feedback</a></li>
+                <li><a href="/aboutus/">About Us</a></li>
+
+                <li> {% if request.user.is_authenticated %}
+                    <li><a href="/cart/"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="/logout/"><i class="fas fa-power-off"></i></a>
+                        <li>
+                            <div class="w3-dropdown-hover">
+                                <div>{{user}}
+                                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                                        <a href="/myorders/" class="w3-bar-item w3-button">My Orders</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            {% else %}
+                            <li><a href="/login/"><i class="fas fa-user-circle"></i></a>
+                                <li>
+                                    <li><a href="/signup/"><i class="far fa-user-circle"></i></a>
+                                        <li>
+                                            {% endif %}
+            </ul>
+        </div>
+
+    </section>
+
+
+    <section id="home" style="background-image: url('{% static 'wp6349525-puppies-and-kittens-hd-wallpapers 1.png'%}')" ;>
+        <h4>New Arrivals</h4>
+        <h2>The best products</h2>
+        <h1>For your pet!!!</h1>
+
+        <button onclick="window.location.href='/dog/'" style="background-image: url('{% static 'button.png'%}')" ;>Shop Now</button>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Best Seller ✨</h2>
+        <p>Your Pet Deserves It!!!</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'RC img 1.png' %}">
+                <div class="des">
+                    <span>Royal Canin</span>
+                    <h5>Royal Canin Mini Puppy</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹783</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'WK img 1.jpg' %}">
+                <div class="des">
+                    <span>Whikas</span>
+                    <h5>Whiskas Kitten (2-12 months) Dry Cat Food, Ocean Fish Flavour with Milk 3kg Pack</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹935</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'RC GR Puppy img 1.jpeg' %}">
+                <div class="des">
+                    <span>Royal Canin</span>
+                    <h5>Royal Canin Golden Retriever Puppy Dry Food</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹810</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'PP Kitten img 1.jpg' %}">
+                <div class="des">
+                    <span>PurePet</span>
+                    <h5>Pure Pet Cat Adult 1.2KG</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹299</h4>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1" style="background-image: url('{% static 'b2.jpg'%}')" ;>
+        <h4>Grooming Discounts</h4>
+        <h2>Click Here and Get
+            <Span>20% Off</Span> On Grooming Products</h2>
+        <button class="normal" onclick="window.location.href='/dog/'">Lets Grab It!</button>
+    </section>
+
+
+    <section id="product1" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Make your pet look smart</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'Pulse ZR® II Detachable Blade Clipper 1.png' %}">
+                <div class="des">
+                    <span>Andis</span>
+                    <h5>Pulse ZR® II Detachable Blade Clipper</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹3,238</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'Tea Tree So Cool Powder,100 Gms – Dogs and Cats.jpg' %}">
+                <div class="des">
+                    <span>So Cool</span>
+                    <h5>Tea Tree So Cool Powder,100 Gms - Dogs and Cats</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹140</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'WoofBrew-Bottom-Sniffer-Dog-Beer-400x400.jpg' %}">
+                <div class="des">
+                    <span>WOOF&BREW</span>
+                    <h5>WoofBrew-Bottom-Sniffer-Dog-Beer, 300ml</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹499</h4>
+                </div>
+            </div>
+            <div class="pro" onclick="window.location.href='/dog/'">
+                <img src="{% static 'Cat food dispenser 1.jpg' %}">
+                <div class="des">
+                    <span>Credly</span>
+                    <h5>Cat food dispenser stainless steel</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹599</h4>
+                </div>
+            </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your nemail address">
+            <button class="normal"><a href="/signup/">Sign Up</a></button>
+        </div>
+    </section>
+
+    <footer class="section-p1 ">
+        <div class="col ">
+            <img class="logo " src="{% static 'LogoSample_ByTailorBrands-removebg-preview1.png' %} ">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+            <p><strong>Phone:</strong> +919356157251</p>
+            <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+            <dvi class="follow ">
+                <h4>Follow Us</h4>
+                <div class="icon ">
+                    <i class="fab fa-facebook-f "></i>
+                    <i class="fab fa-twitter "></i>
+                    <i class="fab fa-instagram "></i>
+                    <i class="fab fa-pintrest-p "></i>
+                    <i class="fab fa-youtube "></i>
+                </div>
+            </dvi>
+        </div>
+
+        <div class="col ">
+            <h4>About</h4>
+            <a href="/aboutus/ ">About</a>
+            <a href="/contactus/ ">Contact us</a>
+            <a href="/admin/ ">Admin</a>
+        </div>
+
+        <div class="col ">
+            <h4>My Account</h4>
+            <a href="/login/ ">Sign In</a>
+            <a href="/login/ ">View Cart</a>
+            <a href="/login/ ">Track My Order</a>
+
+        </div>
+
+        <div class="install ">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row ">
+                <img src="{% static 'app.jpg' %} ">
+                <img src="{% static 'play.jpg' %} ">
+            </div>
+            <p>Secured Payment Getways</p>
+            <img src="{% static 'pay.png' %} ">
+        </div>
+
+        <div class="copyright ">
+            <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'jquery-3.6.2.min.js' %}"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js "></script>
+    <script>
+        alertify.set('notifier', 'position', 'top-right');
+
+        { %
+            for msg in messages %
+        }
+        alertify.success('{{msg}}'); { % endfor %
+        }
+    </script>
+
+
+
+
+</body>
+
+
+
+</html>

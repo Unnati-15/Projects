@@ -1,0 +1,539 @@
+from django.shortcuts import render,redirect
+from django.contrib import messages
+import mysql.connector as sql
+em=''
+pwd=''
+# Create your views here.
+def loginaction(request):
+    global em,pwd
+    if request.method=="POST":
+        m=sql.connect(host="localhost",user="root",passwd="unnati@15",database='myworld')
+        cursor=m.cursor()
+        d=request.POST
+        for key,value in d.items():
+            if key=="email":
+                em=value
+            if key=="password":
+                pwd=value
+        
+        c="select * from users where email='{}' and password='{}'".format(em,pwd)
+        cursor.execute(c)
+        t=tuple(cursor.fetchall())
+        if t==():
+            messages.error(request,'Invalid Credentials')
+        else:
+            return render(request,"index.html")
+
+    return render(request,'login_page.html')
+
+
+
+{% load static %}
+<html>
+    <head>
+        <title>Login Page</title>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <style>
+            #header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: whitesmoke;
+    box-shadow: 0 5px 15px rgba(37, 36, 36, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.788);
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #089e94cb;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #089e94cb;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button{
+                background-color: #0096FF;
+                width: 25%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 3px solid #F0FFFF;
+            }
+            input[type=email],input[type=password]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid blue;
+                box-sizing: border-box;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            .container{
+                padding: 50px;
+                background-color: white;
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 20%;
+                border-radius: 50%;
+            }  
+        </style>
+    
+
+    </head>
+
+    <body>
+
+
+      <section id="header">
+           {% csrf_token %}
+            {% load static %}
+            <a href="#"><img src="{% static 'logo-removebg-preview_140x40.png' %}" alt="logo" class="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="http://127.0.0.1:8000/main/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/dog/">Dog</a></li>
+                    <li><a href="Cat">Cat</a></li>
+                    <li><a href="About us">About us</a></li>
+                    <li><a href="http://127.0.0.1:8000/reviews/">Reviews</a></li>
+                    <li><a href="Emergency services">Emergency services</a></li>
+                    <li><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                   <li><a href="http://localhost:8000/login/"><i class="fa fa-user"></i></a><li>
+                </ul>
+            </div>
+
+        </section>
+
+        
+        <center><h1>Login Form</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'images.jfif' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for ='email'><b>UserEmail :  </b></label>
+                <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+                <label for='password'><b>Password : </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required><br>  
+                <button type="submit"><b>LOGIN</b></button><br>     
+                Don't have an account <a href="http://localhost:8000/signup/"> CREATE AN ACCOUNT </a>
+            </div></center>
+        </form>
+
+ <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="{% static 'logo-removebg-preview_140x40.png' %}">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+                <p><strong>Phone:</strong> +919356157251</p>
+                <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+                <dvi class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pintrest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </dvi>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src="{% static 'app.jpg' %}">
+                    <img src="{% static 'play.jpg' %}">
+                </div>
+                <p>Secured Payment Getways</p>
+                <img src="{% static 'pay.png' %}">
+            </div>
+
+            <div class="copyright">
+                <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
+
+
+from django.shortcuts import render,redirect
+from django.contrib import messages
+from django.contrib.auth.models import User,auth
+
+
+# Create your views here.
+def loginaction(request):
+      if request.method == 'POST':
+          username=request.POST['username']
+          password=request.POST['password']
+
+          user=auth.authenticate(username=username,password=password)
+          if user is not None:
+            auth.login(request,user)
+            return redirect('/main/')
+            
+          else:
+            messages.info(request,'invalid credentials')
+            return redirect('/login/')
+            
+
+
+         
+      else:
+          return render(request,'login_page.html')
+--------------------------------------------------------********************-------------------------------------------------------------------
+from django.shortcuts import render
+import mysql.connector as sql
+fn=''
+ln=''
+em=''
+pwd=''
+# Create your views here.
+def signaction(request):
+    global fn,ln,em,pwd
+    if request.method=="POST":
+        m=sql.connect(host="localhost",user="root",passwd="unnati@15",database='myworld')
+        cursor=m.cursor()
+        d=request.POST
+        for key,value in d.items():
+            if key=="first_name":
+                fn=value
+            if key=="last_name":
+                ln=value
+            if key=="email":
+                em=value
+            if key=="password":
+                pwd=value
+        
+        c="insert into users Values('{}','{}','{}','{}')".format(fn,ln,em,pwd)
+        cursor.execute(c)
+        m.commit()
+
+    return render(request,'signup_page.html')
+{% load static %}
+<html>
+    <head>
+        <title>Signup Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <style>
+            #header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: whitesmoke;
+    box-shadow: 0 5px 15px rgba(37, 36, 36, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.788);
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #089e94cb;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #089e94cb;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button{
+                background-color: #0096FF;
+                width: 25%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 3px solid #F0FFFF;
+            }
+            input[type=email],input[type=text]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid blue;
+                box-sizing: border-box;
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 18px;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            .container{
+                padding: 50px;
+                background-color: white;
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 10%;
+                border-radius: 50%;
+            }  
+        </style>
+   
+         
+
+    </head>
+
+    <body>
+
+
+       <section id="header">
+           {% csrf_token %}
+            {% load static %}
+            <a href="#"><img src="{% static 'logo-removebg-preview_140x40.png' %}" alt="logo" class="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="http://127.0.0.1:8000/main/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/dog/">Dog</a></li>
+                    <li><a href="Cat">Cat</a></li>
+                    <li><a href="About us">About us</a></li>
+                    <li><a href="http://127.0.0.1:8000/reviews/">Reviews</a></li>
+                    <li><a href="Emergency services">Emergency services</a></li>
+                    <li><a href="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                   <li><a href="http://localhost:8000/login/"><i class="fa fa-user"></i></a><li>
+                </ul>
+            </div>
+
+        </section>
+
+       
+        <center><h1>Register Form</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'avatar.png' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for='first_name'><b>First Name : </b></label>
+		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+		        <label for='last_name'><b>Last Name :</b></label>
+		        <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+		       
+            	<label for ='email'><b>Email Id  :  </b></label>
+            	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+            	<label for='password'><b>Password : </b></label>
+            	<input type="text" placeholder="Enter Password" name="password" required><br>  
+            	<button type="submit"><b>CREATE AN ACCOUNT</b></button><br>     
+            	Already have an accounct <a href="http://localhost:8000/login/"> LOGIN </a>
+            </div></center>
+        </form>
+
+ <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="{% static 'logo-removebg-preview_140x40.png' %}">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
+                <p><strong>Phone:</strong> +919356157251</p>
+                <p><strong>Working Hours:</strong> 10:00AM to 7:00PM, Mon to Sat</p>
+                <dvi class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pintrest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </dvi>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src="{% static 'app.jpg' %}">
+                    <img src="{% static 'play.jpg' %}">
+                </div>
+                <p>Secured Payment Getways</p>
+                <img src="{% static 'pay.png' %}">
+            </div>
+
+            <div class="copyright">
+                <p>© 2022, SuperPaws- Online Pet Store For Great Deals and</p>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
+
+
+from django.shortcuts import render,redirect
+from django.contrib.auth.models import User,auth
+from django.contrib import messages
+
+
+# Create your views here.
+def signaction(request):
+      if request.method == 'POST':
+          first_name=request.POST['first_name']
+          last_name=request.POST['last_name']
+          username=request.POST['username']
+          email=request.POST['email']
+          password1=request.POST['password1']
+          password2=request.POST['password2']   
+          if password1==password2:
+            if User.objects.filter(username=username).exists():
+                  messages.info(request,'Username Taken')
+                  return redirect('/signup/')
+            elif User.objects.filter(email=email).exists():
+                  messages.info(request,'Email Taken')
+                  return redirect('/signup/')
+            else:
+                  user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
+                  user.save()
+                  print('User Created')
+                  return redirect('/login/')
+          else:
+            messages.info(request,'password not matching...')
+            return redirect('/signup/')
+            return redirect('/main/')
+
+
+         
+      else:
+          return render(request,'signup_page.html')
+
+
+
+
+username------------- hput
+password------------- hpunnati15
