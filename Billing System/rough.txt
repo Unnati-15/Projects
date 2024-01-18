@@ -1,0 +1,95 @@
+if self.var_cust_id.get()=="":
+                messagebox.showerror("Error","Customer id required",parent=self.root)
+            else:
+                cursor.execute("select * from Customer where id={}",(self.var_cust_id.get(),self.var_cust_name.get(),self.var_cust_email.get(),self.var_cust_mobile.get(),self.var_cust_dob.get(),self.var_cust_addr.get())) 
+                row=cursor.fetchone()
+                if row!=None:
+                    messagebox.showerror("Error","This customer already exists,try different",parent=self.root)
+                else:
+
+
+create table Customer(id integer primary key ,
+		     name varchar(20),
+		     email varchar(20),
+		     mobno varchar(20),
+		     dob varchar(20),
+                           addr varchar(20));
+        
+
+
+=====================
+def add(self):
+        con=c.connect(host="localhost",username="root",password="unnati@15",database="ty")         
+        cursor=con.cursor()
+
+        a=self.var_cust_id.get(),
+        b=self.var_cust_name.get(),
+        c1=self.var_cust_email.get(),
+        d=self.var_cust_mobile.get(),
+        e=self.var_cust_dob.get(),
+        a1=self.var_cust_addr.get(),
+        try:
+            
+            cursor.execute("insert into Customer values({}, '{}','{}','{}','{}','{}')".format(a,str(b),str(c1),str(d),str(e),str(a1)))
+            con.commit()
+            messagebox.showinfo("Success","Customer added successfully")
+             
+        except Exception as ex:
+            messagebox.showerror("Error",f"Error due to : {str(ex)}",parent=self.root)
+
+======================================================
+try:
+            if self.var_cust_id.get()=="":
+                messagebox.showerror("Error","Customer id required",parent=self.root)
+            else:
+                cursor.execute("select * from Customer where id={}",(self.var_cust_id.get(),)) 
+                row=cursor.fetchone()
+                if row!=None:
+                    messagebox.showerror("Error","This customer already exists,try different",parent=self.root)
+                else:    
+                    cursor.execute("insert into Customer (id,name,email,mobno,dob,addr) values({}, '{}','{}','{}','{}','{}')".format(a,str(b),str(c1),str(d),str(e),str(a1)))
+                    con.commit()
+                    con.close()
+                    messagebox.showinfo("Success","Customer added successfully")
+        except Exception as ex:
+                messagebox.showerror("Error",f"Error due to : {str(ex)}",parent=self.root)
+
+===========================
+
+ def add(self):
+        con=c.connect(host="localhost",username="root",password="unnati@15",database="ty")         
+        cursor=con.cursor()
+
+        a=self.var_cust_id.get(),
+        b=self.var_cust_name.get(),
+        c1=self.var_cust_email.get(),
+        d=self.var_cust_mobile.get(),
+        e=self.var_cust_dob.get(),
+        a1=self.var_cust_addr.get(),
+
+        try:
+            if self.var_cust_id.get()==" ":
+                messagebox.showerror("Error","Customer id required")
+            else:
+                cursor.execute("insert into Customer values({}, '{}','{}','{}','{}','{}')".format(a,str(b),str(c1),str(d),str(e),str(a1)))
+                con.commit()
+                messagebox.showinfo("Success","Customer added successfully")
+                con.close()
+        except Exception as ex:
+            messagebox.showerror("Error",f"Error due to : {str(ex)}")
+
+
+
+
+
+
+
+
+
+
+
+            else:
+                cursor.execute("select * from Customer where id={}",(self.var_cust_id.get(),)) 
+                row=cursor.fetchone()
+                if row!=None:
+                    messagebox.showerror("Error","This customer already exists,try different",parent=self.root)
