@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <link rel="stylesheet" href="styled.css">
+    <link rel="icon" href="favicon.ico">
+
+</head>
+
+
+<body ng-app="MyLogin" ng-controller="loginctrl">
+    <header>
+        <div class="header-container">
+            <a href="home.html" id="logo">
+                <h2 class="k">KANTAN NA NIHONGO</h2>
+                <a class="active" href="LOGIN.html">
+                    <h3 class="k1">LOGIN</h3>
+                </a>
+            </a>
+        </div>
+    </header>
+    <div>
+        <nav>
+
+            <ul id="mainul">
+
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="PHRASES.html">PHRASES</a></li>
+                <li><a href="HIRAGANA.html">HIRAGANA</a></li>
+                <li><a href="KATAKANA.html">KATAKANA</a></li>
+                <li><a href="KANJI.html">KANJI</a></li>
+                <li><a href="EXAMDETAILS.html">EXAM DETAILS</a></li>
+                <li><a href="RESOURCES.html">RESOURCES</a></li>
+                <li><a href="CONTACT.html">CONTACT</a></li>
+                <li><a href="ABOUTUS.html">ABOUT US</a></li>
+                <li><a href="QUIZ.html">QUIZ</a></li>
+            </ul>
+
+        </nav>
+    </div>
+
+    <h2 class="examsh1">LOGIN</h2>
+    <div class="div2">
+        <form name="LoginForm" ng-submit="save1(this)">
+            <label><b></b> <b>Enter UserName </b>
+        <b>
+        </label> <br>
+            <input type="username" name="username" ng-model="username" ng-minlength="3" required>
+
+            <span ng-show="LoginForm.username.$dirty && LoginForm.username.$invalid"></span>
+            <br>
+            <span ng-show="LoginForm.username.$error.required"></span>
+
+            <span ng-show="LoginForm.username.$error.minlength">Minimum 3 letters required</span>
+            <br>
+
+            <label><b></b>
+                        Enter PassWord <b>
+                        </label> <br>
+            <input type="password" name="password" ng-model="password" placeholder="password" ng-minlength="8" required>
+
+            <span ng-show="LoginForm.password.$dirty && LoginForm.password.$invalid"></span>
+            <br>
+            <span ng-show="LoginForm.password.$error.required"></span>
+
+            <span ng-show="LoginForm.password.$error.minlength">Password must have minimum 8 characters</span>
+            <br>
+
+            <br>
+            <input type="checkbox" id="check">
+            <span class="rm">Remember me  &nbsp;
+                &nbsp;
+                &nbsp;<span class="rm"> Forgot <a href="#">Password</a></span></span>
+            <br><br>
+
+            <button type="submit" id="submit"><a href="QUIZ1.html">LOGIN</a></button>
+
+        </form>
+    </div>
+
+    <script>
+        var app = angular.module("MyLogin", []);
+        app.controller("loginctrl", function($scope) {
+            $scope.save1 = function($this) {
+                if ($this.LoginForm.username.$error.minlength) {
+                    alert("Username is too short");
+                } else if ($this.LoginForm.username.$valid && $this.LoginForm.password.$valid) {
+                    alert("Valid Credentials");
+
+                }
+            }
+
+        });
+    </script>
+
+
+
+
+
+
+    <div>
+        <footer>
+            <div class="row2"></div>
+            <div class="footer-container">
+                <h3>FOLLOW US ON</h3>
+                <ul>
+                    <a href="Instagram.html">Instagram</a> &nbsp;&nbsp;
+                    <a href="Facebook.html">Facebook</a> &nbsp;&nbsp;
+                    <a href="YouTube.html">YouTube</a> &nbsp;&nbsp;
+                </ul>
+            </div>
+            <div class="footer-container">
+                <img src="favicon.ico" alt="icon" id="fav">
+                <h3>KANTAN NA NIHONGO &nbsp;&copy;&nbsp;All Rights Reserved</h3>
+                <a href="termsndcond">Terms & Conditions</a>
+            </div>
+    </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
